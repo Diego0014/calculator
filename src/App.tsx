@@ -3,8 +3,6 @@ import "./app.css";
 function App() {
   const [value, setValue] = useState("");
 
- 
-
   const deleteBtn = () => {
     if (value.slice(-1) === " ") {
       setValue(value.substring(0, value.length - 3));
@@ -17,21 +15,31 @@ function App() {
 
   const equalBtnManager = () => {
     try {
-      const expression = eval(value) // eslint-disable-line
-      expression == "Infinity"? setValue("Cannot divide by zero") : setValue(expression.toString());    
+      const expression = eval(value); // eslint-disable-line
+      expression == "Infinity"
+        ? setValue("Cannot divide by zero")
+        : setValue(expression.toString()); // eslint-disable-line
     } catch (error) {
-      alert("Error"+ setValue(""))
-    }        
+      alert("Error" + setValue(""));
+    }
   };
 
-  type Operator = "+" | "-" | "*"| "/";
-  let lastVal = value.substring(value.length-1, 1);
+  type Operator = "+" | "-" | "*" | "/";
+  let lastVal = value.substring(value.length - 1, 1);
 
-  function addOp  (op: Operator){
-    if (value !== "" && !((lastVal === "+" ) || (lastVal === "-" ) || (lastVal === "*" ) || (lastVal === "/" || (lastVal === ".")))){
-      setValue(value + op)
+  function addOp(op: Operator) {
+    if (
+      value !== "" &&
+      !(
+        lastVal === "+" ||
+        lastVal === "-" ||
+        lastVal === "*" ||
+        lastVal === "/" ||
+        lastVal === "."
+      )
+    ) {
+      setValue(value + op);
     }
-  
   }
 
   return (
@@ -41,7 +49,7 @@ function App() {
         <input className="inputs" value={value} readOnly />
       </div>
       <div className="numbers">
-        <button className="nBtn" onClick={() => setValue(value + "7")} >
+        <button className="nBtn" onClick={() => setValue(value + "7")}>
           7
         </button>
         <button className="nBtn" onClick={() => setValue(value + "8")}>
@@ -50,10 +58,7 @@ function App() {
         <button className="nBtn" onClick={() => setValue(value + "9")}>
           9
         </button>
-        <button
-          className="sBtn"
-          onClick={() => addOp("*")}
-        >
+        <button className="sBtn" onClick={() => addOp("*")}>
           *
         </button>
       </div>
@@ -67,10 +72,7 @@ function App() {
         <button className="nBtn" onClick={() => setValue(value + "6")}>
           6
         </button>
-        <button
-          className="sBtn"
-          onClick={() => addOp("/")}
-        >
+        <button className="sBtn" onClick={() => addOp("/")}>
           /
         </button>
       </div>
@@ -84,10 +86,7 @@ function App() {
         <button className="nBtn" onClick={() => setValue(value + "3")}>
           3
         </button>
-        <button
-          className="sBtn"
-          onClick={() => addOp("-")}
-        >
+        <button className="sBtn" onClick={() => addOp("-")}>
           -
         </button>
       </div>
@@ -98,14 +97,11 @@ function App() {
         <button className="nBtn" onClick={() => setValue(value + "0")}>
           0
         </button>
-        <button className="nBtn" onClick={()=>equalBtnManager()}>
+        <button className="nBtn" onClick={() => equalBtnManager()}>
           =
         </button>
 
-        <button
-          className="sBtn"
-          onClick={() => addOp("+")}
-        >
+        <button className="sBtn" onClick={() => addOp("+")}>
           +
         </button>
       </div>
