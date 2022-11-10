@@ -24,6 +24,16 @@ function App() {
     setValue(expression.toString());
   };
 
+  type Operator = "+" | "-" | "*"| "/";
+  let lastVal = value.substring(value.length-1, 1);
+
+  function addOp  (op: Operator){
+    if (value !== "" && !((lastVal === "+" ) || (lastVal === "-" ) || (lastVal === "*" ) || (lastVal === "/" || (lastVal === ".")))){
+      setValue(value + op)
+    }
+  
+  }
+
   return (
     <div className="App">
       <p className="title">Calculator</p>
@@ -42,7 +52,7 @@ function App() {
         </button>
         <button
           className="sBtn"
-          onClick={() => value.length >= 1 && addSimbol("*")}
+          onClick={() => addOp("*")}
         >
           *
         </button>
@@ -59,7 +69,7 @@ function App() {
         </button>
         <button
           className="sBtn"
-          onClick={() => value.length >= 1 && addSimbol("/")}
+          onClick={() => addOp("/")}
         >
           /
         </button>
@@ -76,7 +86,7 @@ function App() {
         </button>
         <button
           className="sBtn"
-          onClick={() => value.length >= 1 && addSimbol("-")}
+          onClick={() => addOp("-")}
         >
           -
         </button>
@@ -94,7 +104,7 @@ function App() {
 
         <button
           className="sBtn"
-          onClick={() => value.length >= 1 && addSimbol("+")}
+          onClick={() => addOp("+")}
         >
           +
         </button>
