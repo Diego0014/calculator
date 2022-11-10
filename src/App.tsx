@@ -3,11 +3,7 @@ import "./app.css";
 function App() {
   const [value, setValue] = useState("");
 
-  const addSimbol = (simbol: string) => {
-    if (value.slice(-1) !== " " && value.slice(-1) !== ".") {
-      setValue(value + simbol);
-    }
-  };
+ 
 
   const deleteBtn = () => {
     if (value.slice(-1) === " ") {
@@ -20,8 +16,12 @@ function App() {
   };
 
   const equalBtnManager = () => {
-    const expression = eval(value); // eslint-disable-line
-    setValue(expression.toString());
+    try {
+      const expression = eval(value) // eslint-disable-line
+      expression == "Infinity"? setValue("Cannot divide by zero") : setValue(expression.toString());    
+    } catch (error) {
+      alert("Error"+ setValue(""))
+    }        
   };
 
   type Operator = "+" | "-" | "*"| "/";
