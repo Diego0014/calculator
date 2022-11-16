@@ -1,0 +1,36 @@
+button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
+  font-weight: bold;
+  color: rgb(48, 48, 48);
+  text-shadow: 0 0 5px rgb(61, 60, 60);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+  text-shadow: 0 0 5px rgb(61, 60, 60);
+}
+
+.equals{
+    grid-column: 3 / 5;
+    background-color: #f44;
+}
+
+.equals:hover {
+  background-color: rgb(228, 39, 15);
+}
+
+.del{
+  grid-column: 3 / 3;
+  background-color: #f44;
+}
+
+.del:hover {
+background-color: rgb(228, 39, 15);
+}
