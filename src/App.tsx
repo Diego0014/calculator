@@ -14,7 +14,7 @@ function App() {
     sign: "",
     num: 0,
     result: 0,
-    op: "Aqui se controla el estado de las operaciones",
+    op: "",
   });
 
   return (

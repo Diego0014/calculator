@@ -71,7 +71,7 @@ export const equalsBtnHandler = (calc: obj, setCalc: Function) => {
       ...calc,
       result:
         calc.num.toString() === "0" && calc.sign === "/"
-          ? "Can't divide with 0"
+          ? "Cannot divide by zero"
           : math(Number(calc.result), Number(calc.num), calc.sign),
       sign: "",
       num: 0,

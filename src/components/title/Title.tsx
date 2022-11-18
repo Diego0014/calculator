@@ -1,3 +1,5 @@
+import "./title.css";
+
 export default function Title() {
-  return <h1>Calculator App</h1>;
+  return <h1 className="title">Calculator App</h1>;
 }
